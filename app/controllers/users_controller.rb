@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def add
     @user = User.find(params[:id])
-    user=current_user
+    user = current_user
     user.increment(:point,1)
     user.save
     redirect_to :action => "show"
@@ -45,6 +45,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def mypage
+    @user = current_user
+    @cards = @user.posts
+  end
+
   def user_params
     params.require(:user).permit(:love)
   end
@@ -52,4 +57,5 @@ class UsersController < ApplicationController
   def already_params
     params.require(:already).permit(:ans)
   end
+
 end

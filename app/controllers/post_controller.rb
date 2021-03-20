@@ -1,6 +1,6 @@
 class PostController < ApplicationController
   def index
-    @posts=Post.all  
+    @posts=Post.all
     @gacha=nil
   end
 
@@ -10,12 +10,13 @@ class PostController < ApplicationController
     user.save
     @gacha=Post.where( 'id >= ?', rand(Post.first.id..Post.last.id) ).first
     @posts=Post.all
-    @relation=CardRelation.new(user_id:current_user.id,card_id:@gacha.id)
+    @relation=BringCard.new(user_id:current_user.id,post_id:@gacha.id)
     if @relation.save
       render "index"
-    end  
+    end
   end
-  
+
+  # メンターの新規投稿
   def new
     @post=Post.new
   end
@@ -27,7 +28,7 @@ class PostController < ApplicationController
     else
       redirect_to :action => "new"
     end
-  end 
+  end
 
   private
   def post_params

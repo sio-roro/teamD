@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_124815) do
+ActiveRecord::Schema.define(version: 2021_03_20_155043) do
 
   create_table "alreadies", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2021_03_20_124815) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "ans"
     t.index ["user_id"], name: "index_alreadies_on_user_id"
+  end
+
+  create_table "bring_cards", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_bring_cards_on_post_id"
+    t.index ["user_id"], name: "index_bring_cards_on_user_id"
   end
 
   create_table "card_relations", force: :cascade do |t|
@@ -51,5 +60,7 @@ ActiveRecord::Schema.define(version: 2021_03_20_124815) do
   end
 
   add_foreign_key "alreadies", "users"
+  add_foreign_key "bring_cards", "posts"
+  add_foreign_key "bring_cards", "users"
   add_foreign_key "card_relations", "users"
 end
