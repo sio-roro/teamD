@@ -3,24 +3,31 @@
     <div class="header-title">MENTER GACHA</div>
   </div>
 
-  <h1>Post#index</h1>
-  <%if current_user.point>0%>
-  　<%=link_to gacha_path, method: :post do%>
-  <p>ガチャを回す</p>
-  <%end%>
-  <%else%>
-  <p>Add your point!</p>
-  <%end%>
-  <h1>↓ガチャ結果</h1>
-  <%if @gacha%>
-  <h1><%=@gacha.body%></h1>
-  <%else%>
-  <h1>No Post</h1>
-  <%end%>
-  <h3>一覧</h3>
-  <%@posts.each do |t|%>
-  <p><%=t.body%></p>
-  <%= image_tag t.image_url, size: "250x200" if t.image? %>
-  <%end%>
 
+  <h3>一覧</h3>
+  <div class="mentor-index">
+    <%@posts.each do |t|%>
+    <div class="mentor-card d">
+      <div class="mentor-name"><%=t.body%></div>
+      <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
+      </div>
+    </div>
+    <%end%>
+  </div>
 </div>
+
+
+<h1>Post#index</h1>
+<%if current_user.point>0%>
+　<%=link_to gacha_path, method: :post do%>
+<p>ガチャを回す</p>
+<%end%>
+<%else%>
+<p>Add your point!</p>
+<%end%>
+<h1>↓ガチャ結果</h1>
+<%if @gacha%>
+<h1><%=@gacha.body%></h1>
+<%else%>
+<h1>No Post</h1>
+<%end%>
