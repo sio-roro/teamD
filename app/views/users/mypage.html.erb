@@ -1,0 +1,8 @@
+<h1>マイページだよおお</h1>
+
+<h2>持っているカード一覧</h2>
+<%@cards.each do |t|%>
+  <%=t.body%>
+  <%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
+  <%=t.disc%>
+<%end%>
