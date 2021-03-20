@@ -1,0 +1,18 @@
+<h1>Post#index</h1>
+  <%if current_user.point>0%>
+  　<%=link_to gacha_path, method: :post do%>
+    <p>ガチャを回す</p>
+    <%end%>
+  <%else%>
+    <p>Add your point!</p>
+  <%end%>    
+  <h1>↓ガチャ結果</h1>
+<%if @gacha%>
+  <h1><%=@gacha.body%></h1>
+ <%else%>
+ <h1>No Post</h1> 
+<%end%>
+<h3>一覧</h3>
+<%@posts.each do |t|%>
+  <p><%=t.body%></p>
+<%end%>

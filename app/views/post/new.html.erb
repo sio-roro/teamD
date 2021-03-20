@@ -1,0 +1,12 @@
+<h1>Post new</h1>
+<div class="new_data">
+  <%=form_for @post do |f|%>
+    <div class="input_area">
+      <%= f.label :body %>
+      <%= f.text_field :body, :size => 140 %>
+      <%= f.label :画像 %><br />
+      <%= f.file_field :image, class: "image" %>
+    </div>
+    <%= f.submit "Post it!" %>
+  <%end %>
+</div>
