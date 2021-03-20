@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
     create_table :posts do |t|
       t.text :"body"
       t.string :"disc"
+      t.string :"image"
 
       t.timestamps
     end
