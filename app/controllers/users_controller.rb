@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    # @cards = 
   end
 
   def add
@@ -10,5 +9,8 @@ class UsersController < ApplicationController
     user.increment(:point,1)
     user.save
     redirect_to :action => "show"
+  end
+
+  def mypage
   end
 end
