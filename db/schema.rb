@@ -12,16 +12,18 @@
 
 ActiveRecord::Schema.define(version: 2021_03_20_085019) do
 
-  create_table "card_relations", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "card_id"
+  create_table "group_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_card_relations_on_user_id"
+    t.index ["post_id"], name: "index_group_users_on_post_id"
+    t.index ["user_id"], name: "index_group_users_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.text "body"
+    t.string "disc"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
@@ -40,5 +42,6 @@ ActiveRecord::Schema.define(version: 2021_03_20_085019) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "card_relations", "users"
+  add_foreign_key "group_users", "posts"
+  add_foreign_key "group_users", "users"
 end
