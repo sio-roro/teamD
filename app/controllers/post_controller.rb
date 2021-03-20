@@ -13,9 +13,10 @@ class PostController < ApplicationController
     @relation=CardRelation.new(user_id:current_user.id,card_id:@gacha.id)
     if @relation.save
       render "index"
-    end  
+    end
   end
-  
+
+  # メンターの新規投稿
   def new
     @post=Post.new
   end
@@ -27,7 +28,7 @@ class PostController < ApplicationController
     else
       redirect_to :action => "new"
     end
-  end 
+  end
 
   private
   def post_params
