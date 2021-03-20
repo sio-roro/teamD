@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>BavelApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>BavelApp</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+</head>
 
-    <header>
-     
-      <%if user_signed_in?%>
-        <%=link_to user_path(current_user.id) do%>
-          <%=current_user.email%>
-        <%end%>  
-        <p>my point<%=current_user.point%></p>
-        <%=link_to post_index_path do%>
-          <p>post index</p>
-        <%end%>
-        <%=link_to post_new_path do%>
-          <p>post new</p>
-        <%end%>
-        <%=link_to destroy_user_session_path ,method: :delete do%>
-          <p>ログアウト</p>
-        <%end%>
-      <%else%>
-        <%=link_to new_user_registration_path do%>
-          <p>サインイン</p>
-        <%end%>
-        <%=link_to new_user_session_path do%>
-          <p>ログイン</p>
-        <%end%>
-      <%end%>
-    </header>
-    <%= yield %>
-  </body>
+<body>
+
+  <header>
+    <%if user_signed_in?%>
+    <%=link_to user_path(current_user.id) do%>
+    <%=current_user.email%>
+    <%end%>
+    <p>my point<%=current_user.point%></p>
+    <%=link_to post_index_path do%>
+    <p>post index</p>
+    <%end%>
+    <%=link_to post_new_path do%>
+    <p>post new</p>
+    <%end%>
+    <%=link_to destroy_user_session_path ,method: :delete do%>
+    <p>ログアウト</p>
+    <%end%>
+    <%else%>
+    <%=link_to new_user_registration_path do%>
+    <p>サインイン</p>
+    <%end%>
+    <%=link_to new_user_session_path do%>
+    <p>ログイン</p>
+    <%end%>
+    <%end%>
+  </header>
+  <%= yield %>
+</body>
+
 </html>

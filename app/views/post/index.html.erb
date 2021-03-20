@@ -1,18 +1,26 @@
-<h1>Post#index</h1>
+<div class="post-index">
+  <div class="header">
+    <div class="header-title">MENTER GACHA</div>
+  </div>
+
+  <h1>Post#index</h1>
   <%if current_user.point>0%>
   　<%=link_to gacha_path, method: :post do%>
-    <p>ガチャを回す</p>
-    <%end%>
+  <p>ガチャを回す</p>
+  <%end%>
   <%else%>
-    <p>Add your point!</p>
-  <%end%>    
+  <p>Add your point!</p>
+  <%end%>
   <h1>↓ガチャ結果</h1>
-<%if @gacha%>
+  <%if @gacha%>
   <h1><%=@gacha.body%></h1>
- <%else%>
- <h1>No Post</h1> 
-<%end%>
-<h3>一覧</h3>
-<%@posts.each do |t|%>
+  <%else%>
+  <h1>No Post</h1>
+  <%end%>
+  <h3>一覧</h3>
+  <%@posts.each do |t|%>
   <p><%=t.body%></p>
-<%end%>
+  <%= image_tag t.image_url, size: "250x200" if t.image? %>
+  <%end%>
+
+</div>
