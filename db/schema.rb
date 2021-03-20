@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_085019) do
+ActiveRecord::Schema.define(version: 2021_03_20_124815) do
+
+  create_table "alreadies", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "player_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ans"
+    t.index ["user_id"], name: "index_alreadies_on_user_id"
+  end
 
   create_table "card_relations", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -36,9 +45,11 @@ ActiveRecord::Schema.define(version: 2021_03_20_085019) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "point", default: 0
+    t.string "love"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "alreadies", "users"
   add_foreign_key "card_relations", "users"
 end

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   post 'posts' => 'post#create'
   post "post/gacha"=>"post#gacha",as:"gacha"
   post "user/add/:id"=>"users#add",as:"add"
+  patch "user/set"=>"users#set",as:"set"
+  post "user/anser/:id"=>"users#anser",as:"anser"
+
   resources :users, :only => [:show]
   
 

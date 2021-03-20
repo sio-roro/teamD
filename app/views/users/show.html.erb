@@ -4,7 +4,25 @@
 <p>MyPoint <%= @user.point %></p>
 
 <%if current_user==@user%>
+  <%=form_for @user ,url:set_path do |f|%>
+    <div class="input_area">
+      <%= f.label :love %>
+      <%= f.text_field :love, :size => 140 %>
+    </div>
+    <%= f.submit "Set my Love!" %>
+    <%end%>
+<%else%>
+  <%=form_for @already ,url:anser_path(@user.id) do |f|%>
+    <div class="input_area">
+      <%= f.label :ans %>
+      <%= f.text_field :ans, :size => 140 %>
+    </div>
+    <%= f.submit "anser!" %>
+  <%end%>
+<%end%>  
+
   <%=link_to add_path(@user.id), method: :post do%>
     <p>Point＋</p>
   <%end%>
-<%end%>
+
+
