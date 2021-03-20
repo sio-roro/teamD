@@ -1,24 +1,8 @@
 // Place all the styles related to the post controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+//メンターindexのcss
 .post-index {
-  .header {
-    width: 100%;
-    height: 310px;
-    background: #d77272;
-    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
-
-    .header-title {
-      font-size: 100px;
-      line-height: 310px;
-      font-family: "Rubik Mono One";
-      color: #fdeb4e;
-      letter-spacing: 0.1em;
-      text-align: center;
-      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    }
-  }
-
   .mentor-index {
     display: flex;
     flex-wrap: wrap;
@@ -55,5 +39,106 @@
       background-size: cover;
       text-align: center;
     }
+    .i {
+      width: 396px;
+      height: 534px;
+      background-image: url("I-card.png");
+      background-size: cover;
+      text-align: center;
+    }
+    .s {
+      width: 396px;
+      height: 534px;
+      background-image: url("S-card.png");
+      background-size: cover;
+      text-align: center;
+    }
+    .c {
+      width: 396px;
+      height: 534px;
+      background-image: url("C-card.png");
+      background-size: cover;
+      text-align: center;
+    }
+  }
+}
+//ガチャを引く前のcss
+.gacha {
+  .gacha-new {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-image: url("kirakira.jpg");
+    font-family: "Rubik Mono One";
+
+    .point {
+      padding-top: 60px;
+      font-size: 40px;
+      line-height: 60px;
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+    .gacha-image {
+      width: 197px;
+      height: 310px;
+      background-size: cover;
+      margin: auto;
+      background-image: url("gachagacha.png");
+    }
+
+    .to-play {
+      width: 445px;
+      height: 130px;
+      margin: auto;
+      background: #72bfd7;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+      .play {
+        font-size: 80px;
+        line-height: 130px;
+        text-align: center;
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        color: #ffffff;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
+//ガチャ引いた結果
+.gacha-result {
+  .mentor-card {
+    width: 400px;
+    margin: 10px;
+
+    .mentor-name {
+      padding-top: 33px;
+      line-height: 62px;
+      font-size: 50px;
+      color: #ffffff;
+      font-family: "Rubik Mono One";
+      text-align: center;
+    }
+    .mentor-image {
+      width: 266px;
+      height: 266px;
+      background-color: #eed26e;
+      border-radius: 15px;
+      margin: auto;
+      .image {
+        border-radius: 15px;
+        margin-top: 7px;
+      }
+    }
+  }
+
+  .d {
+    width: 396px;
+    height: 534px;
+    background-image: url("D-card.png");
+    background-size: cover;
+    text-align: center;
   }
 }
