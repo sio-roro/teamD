@@ -21,12 +21,19 @@ ActiveRecord::Schema.define(version: 2021_03_20_155043) do
     t.index ["user_id"], name: "index_bring_cards_on_user_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.text "body"
-    t.string "disc"
-    t.string "image"
+  create_table "card_relations", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "card_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_card_relations_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,13 +42,14 @@ ActiveRecord::Schema.define(version: 2021_03_20_155043) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "point", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "point", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "bring_cards", "posts"
   add_foreign_key "bring_cards", "users"
+  add_foreign_key "card_relations", "users"
 end
