@@ -24,5 +24,13 @@
   <%=link_to add_path(@user.id), method: :post do%>
     <p>Point＋</p>
   <%end%>
+<h3>カードコレクション</h3>
+  <%@cards.each do |t|%>
+      <div class="mentor-card d">
+        <div class="mentor-name"><%=t.body%></div>
+        <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
+        </div>
+      </div>
+  <%end%>
 
 
