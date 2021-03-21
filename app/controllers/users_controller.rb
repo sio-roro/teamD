@@ -29,7 +29,9 @@ class UsersController < ApplicationController
   end
 
   def anser
+    
     @user=User.find(params[:id])
+    @cards=@user.posts
     if Already.exists?(user_id:params[:id],player_id:current_user.id)
       flash[:notice] = "You already have this menter's point"
       redirect_to :action => "show", :id => @user.id

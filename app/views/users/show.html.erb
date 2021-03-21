@@ -1,34 +1,78 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<p>MyPage <%= @user.email %></p>
-<p>MyPoint <%= @user.point %></p>
-
-<%if current_user==@user%>
-  <%=form_for @user ,url:set_path do |f|%>
-    <div class="input_area">
-      <%= f.label :love %>
-      <%= f.text_field :love, :size => 140 %>
-    </div>
-    <%= f.submit "Set my Love!" %>
+<div class="user-show">
+  <%if current_user==@user%>
+    <%=form_for @user ,url:set_path do |f|%>
+       
+      <div class="point">MY POINT:<%= @user.point %></div>
+      <div class="question-card">
+        <div class="left">
+          <div class="mentor-name">
+            <%= @user.username %>
+          </div>
+        </div>
+        <div class="right">
+          <%= f.label :Like ,class:"title" %>
+          <%= f.text_field :love, :size => 140 ,class:"field" %>
+        </div>
+      </div>
+      <%= f.submit "登録" , class:"submit"%>
     <%end%>
-<%else%>
-  <%=form_for @already ,url:anser_path(@user.id) do |f|%>
-    <div class="input_area">
-      <%= f.label :ans %>
-      <%= f.text_field :ans, :size => 140 %>
-    </div>
-    <%= f.submit "anser!" %>
+  <%else%>
+    <div class="point">MY POINT:<%= @user.point %></div>
+    <%=form_for @already ,url:anser_path(@user.id) do |f|%>
+      <div class="question-card">
+        <div class="left">
+          <div class="mentor-name">
+            <%= @user.username %>
+          </div>
+        </div>
+        <div class="right">
+          <%= f.label :ans ,class:"title"%>
+          <%= f.text_field :ans, :size => 140 ,class:"field" %>
+        </div>
+      </div>
+      <%= f.submit "回答",class:"submit" %>
+    <%end%>
   <%end%>
-<%end%>  
+</div>
 
   
-<h3>カードコレクション</h3>
+<div class="collection">
+  <div class="title">MENTOR CARD COLLECTION</div>
+  <div class="mentor-index">
   <%@cards.each do |t|%>
+    <%if t.disc=="D"%>
       <div class="mentor-card d">
         <div class="mentor-name"><%=t.body%></div>
         <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
         </div>
       </div>
+      <%elsif t.disc=="I"%>
+        <div class="mentor-card i">
+          <div class="mentor-name"><%=t.body%></div>
+          <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
+          </div>
+        </div>
+      <%elsif t.disc=="S"%>
+        <div class="mentor-card s">
+          <div class="mentor-name"><%=t.body%></div>
+          <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
+          </div>
+        </div>
+      <%elsif t.disc=="C"%>
+        <div class="mentor-card c">
+        <div class="mentor-name"><%=t.body%></div>
+        <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
+        </div>
+        </div>
+      <%else%>
+        <div class="mentor-card r">
+        <div class="mentor-name"><%=t.body%></div>
+        <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
+        </div>
+        </div>
+      <%end%>
   <%end%>
+  </div>
+</div>
 
 

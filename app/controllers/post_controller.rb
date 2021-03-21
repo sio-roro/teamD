@@ -8,7 +8,7 @@ class PostController < ApplicationController
     user=current_user
     user.decrement(:point,1)
     user.save
-    @gacha=Post.where( 'id >= ?', rand(Post.first.id..Post.last.id) ).first
+    @gacha=Post.where('id >= ?', rand(Post.first.id..Post.last.id) ).first
     @posts=Post.all
     @relation=BringCard.new(user_id:current_user.id,post_id:@gacha.id)
     if @relation.save

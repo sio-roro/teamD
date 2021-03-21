@@ -19,11 +19,16 @@
           <%= flash[:notice]%>
         </div>
       <%end%>
+      
+      <div class="header-title">MENTOR GACHA</div>
+    </header>
+    <%= yield %>
+    <footer>
       <%if user_signed_in?%>
         <%=link_to user_path(current_user.id) do%>
-          <%=current_user.username%>
+          <p><%=current_user.username%></p>
         <%end%>  
-        <p>my point<%=current_user.point%></p>
+       
         <%=link_to user_index_path do%>
           <p>user 一覧</p>
         <%end%>
@@ -36,6 +41,7 @@
         <%=link_to destroy_user_session_path ,method: :delete do%>
           <p>ログアウト</p>
         <%end%>
+         <div class="footer_my_point">my point<%=current_user.point%></div>
       <%else%>
         <%=link_to new_user_registration_path do%>
           <p>サインイン</p>
@@ -44,7 +50,6 @@
           <p>ログイン</p>
         <%end%>
       <%end%>
-    </header>
-    <%= yield %>
+    </footer>
   </body>
 </html>
