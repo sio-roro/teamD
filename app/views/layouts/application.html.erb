@@ -21,7 +21,7 @@
       <%end%>
       <%if user_signed_in?%>
         <%=link_to user_path(current_user.id) do%>
-          <%=current_user.email%>
+          <%=current_user.username%>
         <%end%>  
         <p>my point<%=current_user.point%></p>
         <%=link_to post_index_path do%>
