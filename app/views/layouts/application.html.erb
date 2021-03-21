@@ -24,6 +24,9 @@
           <%=current_user.username%>
         <%end%>  
         <p>my point<%=current_user.point%></p>
+        <%=link_to user_index_path do%>
+          <p>user 一覧</p>
+        <%end%>
         <%=link_to post_index_path do%>
           <p>post index</p>
         <%end%>

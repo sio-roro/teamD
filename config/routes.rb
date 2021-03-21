@@ -9,10 +9,8 @@ Rails.application.routes.draw do
   post "user/add/:id"=>"users#add",as:"add"
   patch "user/set"=>"users#set",as:"set"
   post "user/anser/:id"=>"users#anser",as:"anser"
-
+  get "user/index"=>"users#index",as:"user_index"
   resources :users, :only => [:show]
   get "user/mypage" => "users#mypage"
-
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
