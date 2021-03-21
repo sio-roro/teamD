@@ -2,9 +2,12 @@ class UsersController < ApplicationController
   def index
     @users=User.all
   end
-  
+
   def show
     @user = User.find(params[:id])
+    @bring=BringCard.where(user_id:@user)
+    @cards=@user.posts
+
     @already=Already.new
   end
 
