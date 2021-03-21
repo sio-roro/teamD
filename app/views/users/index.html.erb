@@ -1,0 +1,10 @@
+<h1>User 一覧</h1>
+<div class="user_index">
+  <%@users.each do |u|%>
+    <div class="user_box">
+      <%=link_to user_path(u.id) do%>
+        <%=u.username%>
+      <%end%>  
+    </div>
+  <%end%>
+</div>
