@@ -6,6 +6,16 @@
       <%= f.text_field :body, :size => 140 %>
       <%= f.label :画像 %><br />
       <%= f.file_field :image, class: "image" %>
+      <%= f.radio_button :disc, :D %>
+      <%= f.label :disc, "D", {value: :D, style: "display: inline-block;"} %>
+      <%= f.radio_button :disc, :I %>
+      <%= f.label :disc, "I", {value: :I, style: "display: inline-block;"} %>
+      <%= f.radio_button :disc, :S %>
+      <%= f.label :disc, "S", {value: :S, style: "display: inline-block;"} %>
+      <%= f.radio_button :disc, :C %>
+      <%= f.label :disc, "C", {value: :C, style: "display: inline-block;"} %>
+      <%= f.radio_button :disc, :R %>
+      <%= f.label :disc, "R", {value: :R, style: "display: inline-block;"} %>
     </div>
     <%= f.submit "Post it!" %>
   <%end%>

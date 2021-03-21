@@ -30,11 +30,42 @@
   <h3>一覧</h3>
   <div class="mentor-index">
     <%@posts.each do |t|%>
+      <%if t.disc=="D"%>
+      <p>d</p>
       <div class="mentor-card d">
         <div class="mentor-name"><%=t.body%></div>
         <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
         </div>
       </div>
+      <%elsif t.disc=="I"%>
+        <p>i</p>
+        <div class="mentor-card i">
+          <div class="mentor-name"><%=t.body%></div>
+          <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
+          </div>
+        </div>
+      <%elsif t.disc=="S"%>
+        <p>s</p>
+        <div class="mentor-card s">
+          <div class="mentor-name"><%=t.body%></div>
+          <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
+          </div>
+        </div>
+      <%elsif t.disc=="C"%>
+        <p>c</p>
+        <div class="mentor-card c">
+        <div class="mentor-name"><%=t.body%></div>
+        <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
+        </div>
+        </div>
+      <%else%>
+        <p>r</p>
+        <div class="mentor-card r">
+        <div class="mentor-name"><%=t.body%></div>
+        <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
+        </div>
+        </div>
+      <%end%>
     <%end%>
   </div>
 </div>
