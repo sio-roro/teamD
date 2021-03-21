@@ -1,20 +1,3 @@
-<div class="post-index">
-
-
-
-  <h3>一覧</h3>
-  <div class="mentor-index">
-    <%@posts.each do |t|%>
-    <div class="mentor-card d">
-      <div class="mentor-name"><%=t.body%></div>
-      <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
-      </div>
-    </div>
-    <%end%>
-  </div>
-</div>
-
-
 <div class="gacha">
   <%if current_user.point>0%>
   <div class="gacha-new">
@@ -42,3 +25,18 @@
     <h1>No Post</h1>
     <%end%>
   </div>
+
+<div class="post-index">
+  <h3>一覧</h3>
+  <div class="mentor-index">
+    <%@posts.each do |t|%>
+      <div class="mentor-card d">
+        <div class="mentor-name"><%=t.body%></div>
+        <div class="mentor-image"><%= image_tag t.image_url, size: "250x250" , class: "image" if t.image? %>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
+
+
